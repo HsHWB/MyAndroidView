@@ -1,0 +1,8 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<resources>
+    <declare-styleable name="NewListView">
+    <attr name="listColor" format="color"/>
+    <attr name="listSize" format="dimension"/>
+    <attr format="string" name="newListViewKey"/>
+    </declare-styleable>
+</resources>
