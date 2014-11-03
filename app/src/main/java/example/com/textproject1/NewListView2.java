@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,13 +30,15 @@ public class NewListView2 extends View {
      * 定义画笔
      */
     Paint mPaint;//画笔,包含了画几何图形、文本等的样式和颜色信息
-
+    Context context = null;
     public NewListView2(Context context){
         super(context);
+        this.context = context;
     }
 
     public NewListView2(Context context, AttributeSet attrs){
         super(context, attrs);
+        this.context = context;
         mPaint = new Paint();
         /**
          * TypedArray是一个数组容器,在使用完成后，一定要调用recycle方法,否则这次的设定会对下次的使用造成影响
@@ -56,27 +59,60 @@ public class NewListView2 extends View {
      */
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
-        ImageView image = (ImageView)findViewById(R.drawable.sucai1);
-        InputStream iS = null;
-        try {
-            iS = new FileInputStream(file);
-        }catch(Exception e){
-            System.out.println("文件输入流错误");
-        }
-        Bitmap bitmap = BitmapFactory.decodeStream(iS);
+//        InputStream iS = null;
+//        try {
+//            iS = new FileInputStream(file);
+//        }catch(Exception e){
+//            System.out.println("文件输入流错误");
+//        }
+        ImageView imageView = new ImageView(context);
+        imageView.setImageResource(R.drawable.sucai1);
+        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         Rect src = new Rect();// 这个是表示绘画图片的大小
         Rect dst = new Rect();// 屏幕位置及尺寸
         src.left = 0;
         src.top = 0;
         src.right = bitmap.getWidth();//这个是桌面图的宽度，
-        src.bottom = bitmap.getHeight()/2;//这个是桌面图的高度的一半
+        src.bottom = bitmap.getHeight();//这个是桌面图的高度的一半
         dst.left = 0;
         dst.top = 0;
-        dst.right = bitmap.getWidth();;    //表示需绘画的图片的右上角
-        dst.bottom = bitmap.getHeight()/2;    //表示需绘画的图片的右下角
+        dst.right = bitmap.getWidth();    //表示需绘画的图片的右上角
+        dst.bottom = bitmap.getHeight();    //表示需绘画的图片的右下角
         canvas.drawBitmap(bitmap,src,dst,mPaint);
         src = null;
         dst = null;
     }
-
 }
+/**
+ 创建你自己想要大小的 bitmap
+
+ public static Bitmap resizeBitmap(Bitmap bitmap, int w, int h) {
+ if (bitmap != null) {
+ int width = bitmap.getWidth();
+ int height = bitmap.getHeight();
+ int newWidth = w;
+ int newHeight = h;
+ float scaleWidth = ((float) newWidth) / width;
+ float scaleHeight = ((float) newHeight) / height;
+ Matrix matrix = new Matrix();
+ matrix.postScale(scaleWidth, scaleHeight);
+ Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width,
+ height, matrix, true);
+ return resizedBitmap;
+ } else {
+ return null;
+ }
+ }
+ public static Bitmap resizeBitmap(String path,int  width,int height){
+ BitmapFactory.Options options = new BitmapFactory.Options();
+ options.inJustDecodeBounds = true;
+ options.outWidth = width;
+ options.outHeight = height;
+
+ Bitmap bmp = BitmapFactory.decodeFile(path, options);
+ options.inSampleSize = options.outWidth / height;
+ options.inJustDecodeBounds = false;
+ bmp = BitmapFactory.decodeFile(path, options);
+ return bmp;
+ }
+ */
