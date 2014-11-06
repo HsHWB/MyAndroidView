@@ -2,24 +2,29 @@ package example.com.textproject1;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
 public class Message extends Activity {
+
+    public static DisplayMetrics displayMetrics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        NewListView nLv = new NewListView(this,this);
-//        setContentView(R.layout.newlistviewxml);
-//        setContentView(nLv);
-//        nLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(Message.this,"击中"+String.valueOf(position),Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        NewListView2 nLv = new NewListView2(this,null);
-        setContentView(nLv);
+        displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+//        float density = displayMetrics.density;//获取屏幕密度（像素比例）
+//        int densityDPI = displayMetrics.densityDpi;//屏幕密度（每寸像素）
+//        float xdpi = displayMetrics.xdpi;
+//        float ydpi = displayMetrics.ydpi;
+//        System.out.println("xdpi"+xdpi+"    ydpi"+ydpi);
+//        int screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
+//        int screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
+//        System.out.println("屏幕长："+screenHeightDip+"     屏幕宽："+screenWidthDip);
+        setContentView(R.layout.newlistviewxml);
     }
 }
