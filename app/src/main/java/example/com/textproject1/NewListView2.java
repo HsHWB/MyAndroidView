@@ -70,16 +70,16 @@ public class NewListView2 extends View {
         imageView.setImageResource(R.drawable.sucai1);
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
 
-        float density = displayMetrics.density;//获取屏幕密度（像素比例）
-        int densityDPI = displayMetrics.densityDpi;//屏幕密度（每寸像素）
-        float xdpi = displayMetrics.xdpi;
-        float ydpi = displayMetrics.ydpi;
-        System.out.println("xdpi"+xdpi+"    ydpi"+ydpi);
-        int screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
-        int screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
-        System.out.println("屏幕长："+screenHeightDip+"     屏幕宽："+screenWidthDip);
-
-        Bitmap bitmap1 = resizeBitmap(bitmap,screenWidthDip,screenHeightDip);
+//        float density = displayMetrics.density;//获取屏幕密度（像素比例）
+//        int densityDPI = displayMetrics.densityDpi;//屏幕密度（每寸像素）
+//        float xdpi = displayMetrics.xdpi;
+//        float ydpi = displayMetrics.ydpi;
+//        System.out.println("xdpi"+xdpi+"    ydpi"+ydpi);
+//        int screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
+//        int screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
+//        System.out.println("屏幕长："+screenHeightDip+"     屏幕宽："+screenWidthDip);
+//
+//        Bitmap bitmap1 = resizeBitmap(bitmap,screenWidthDip,screenHeightDip);
         Rect src = new Rect();// 这个是表示绘画图片的大小
         Rect dst = new Rect();// 屏幕位置及尺寸
         src.left = 0;
@@ -90,7 +90,8 @@ public class NewListView2 extends View {
         dst.top = 0;
         dst.right = bitmap.getWidth();    //表示需绘画的图片的右上角
         dst.bottom = bitmap.getHeight();    //表示需绘画的图片的右下角
-        canvas.drawBitmap(bitmap1,src,dst,mPaint);
+//        canvas.drawBitmap(bitmap1,src,dst,mPaint);
+        canvas.drawBitmap(bitmap,src,dst,mPaint);
         src = null;
         dst = null;
     }
