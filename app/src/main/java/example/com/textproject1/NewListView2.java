@@ -13,9 +13,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,13 +31,14 @@ import java.io.InputStream;
  * 在使用到自定义View的xml布局文件中需要加入xmlns:前缀="http://schemas.android.com/apk/res/你的自定义View所在的包路径".
  * 在使用自定义属性的时候，使用前缀：属性名，如my:textColor="#FFFFFFF"。
  */
-public class NewListView2 extends View {
+public class NewListView2 extends View implements GestureDetector.OnGestureListener{
     /**
      * 定义画笔
      */
     Paint mPaint;//画笔,包含了画几何图形、文本等的样式和颜色信息
     Context context = null;
     DisplayMetrics displayMetrics = Message.displayMetrics;
+    GestureDetector detector;
     /**
      * 获取屏幕的长和宽
      */
@@ -43,7 +47,7 @@ public class NewListView2 extends View {
         this.context = context;
     }
 
-    public NewListView2(Context context, AttributeSet attrs){
+    public NewListView2(final Context context, AttributeSet attrs){
         super(context, attrs);
         this.context = context;
         mPaint = new Paint();
@@ -58,6 +62,11 @@ public class NewListView2 extends View {
         mPaint.setTextSize(textSize);
         mPaint.setColor(textColor);
         tA.recycle();
+
+        /**
+         * 创建view的手势
+         */
+        detector = new GestureDetector(getContext(), this);
     }
 
     /**
@@ -69,16 +78,6 @@ public class NewListView2 extends View {
         ImageView imageView = new ImageView(context);
         imageView.setImageResource(R.drawable.sucai1);
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-//        Rect src = new Rect();// 这个是表示绘画图片的大小
-//        Rect dst = new Rect();// 屏幕位置及尺寸
-//        src.left = 0;
-//        src.top = 0;
-//        src.right = bitmap.getWidth();//这个是桌面图的宽度，
-//        src.bottom = bitmap.getHeight();//这个是桌面图的高度的一半
-//        dst.left = 0;
-//        dst.top = 0;
-//        dst.right = bitmap.getWidth();    //表示需绘画的图片的右上角
-//        dst.bottom = bitmap.getHeight();    //表示需绘画的图片的右下角
 
         float density = displayMetrics.density;//获取屏幕密度（像素比例）
         int densityDPI = displayMetrics.densityDpi;//屏幕密度（每寸像素）
@@ -121,7 +120,35 @@ public class NewListView2 extends View {
         }
     }
 
+    @Override
+    public boolean onDown(MotionEvent e){
+        System.out.println("dianji");
+        Toast.makeText(context,"dianji",Toast.LENGTH_SHORT).show();
 
+        return false;
+    }
+    @Override
+    public  boolean onScroll(MotionEvent e, MotionEvent e2, float distanceX, float distanceY){
+        Toast.makeText(context,"huadong",Toast.LENGTH_SHORT).show();
+        return false;
+    }
+    @Override
+    public boolean onSingleTapUp(MotionEvent e){
+        return false;
+    }
+    @Override
+    public void onShowPress(MotionEvent e){}
+    @Override
+    public void onLongPress(MotionEvent e){}
+    @Override
+    public boolean onFling(MotionEvent e, MotionEvent e2, float velocityX, float velocityY){
+        return false;
+    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent e){
+//        Toast.makeText(context,"单击",Toast.LENGTH_SHORT).show();
+//        return false;
+//    }
 }
 /**
  创建你自己想要大小的 bitmap
