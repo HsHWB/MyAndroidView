@@ -122,15 +122,24 @@ public class NewListView2 extends View implements GestureDetector.OnGestureListe
 
     @Override
     public boolean onDown(MotionEvent e){
-        System.out.println("dianji");
-        Toast.makeText(context,"dianji",Toast.LENGTH_SHORT).show();
+        System.out.println("单击");
+        Toast.makeText(context,"单击",Toast.LENGTH_SHORT).show();
 
-        return false;
+        return true;
     }
+
+    /**
+     * 手势onScroll和onFling区分：http://blog.csdn.net/yuliyige/article/details/12655895
+     */
     @Override
     public  boolean onScroll(MotionEvent e, MotionEvent e2, float distanceX, float distanceY){
-        Toast.makeText(context,"huadong",Toast.LENGTH_SHORT).show();
-        return false;
+        int dx = (int)(e2.getX() - e.getX());
+        int dy = (int)(e2.getY() - e.getY());
+        System.out.println("滑动");
+        if (Math.sqrt(Math.pow(Math.abs(dx),2)+Math.pow(Math.abs(dy),2)) > 200) {
+            Toast.makeText(context, "滑动", Toast.LENGTH_SHORT).show();
+        }
+        return true;
     }
     @Override
     public boolean onSingleTapUp(MotionEvent e){
@@ -142,12 +151,28 @@ public class NewListView2 extends View implements GestureDetector.OnGestureListe
     public void onLongPress(MotionEvent e){}
     @Override
     public boolean onFling(MotionEvent e, MotionEvent e2, float velocityX, float velocityY){
-        return false;
+        int dx = (int)(e2.getX() - e.getX());
+        int dy = (int)(e2.getY() - e.getY());
+        if (Math.sqrt(Math.pow(Math.abs(dx),2)+Math.pow(Math.abs(dy),2)) > 500) {
+            Toast.makeText(context, "onFling", Toast.LENGTH_LONG).show();
+            System.out.println("onFling");
+        }
+        return true;
+    }
+
+    /**
+     * 这个方法用来让View接受触控，让GestureDetector去处理
+     * @param e
+     * @return
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent e){
+        detector.onTouchEvent(e);
+        return true;
     }
 //    @Override
-//    public boolean onTouchEvent(MotionEvent e){
-//        Toast.makeText(context,"单击",Toast.LENGTH_SHORT).show();
-//        return false;
+//    public boolean onInterceptTouchEvent(MotionEvent e){
+//        return detector.onTouchEvent(e);
 //    }
 }
 /**
