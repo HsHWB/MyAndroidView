@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <example.com.textproject1.DrawPictureFromDrawable_View
+            android:id="@+id/DPFDV1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+</ScrollView>
+<!--用来设置滚动条模式， 有四种选择：
+ScrollBars.None （无滚动条）， ScrollBars.Horizontal（水平滚动条）
+，ScrollBars.Vertical（垂直滚动条），ScrollBars.Both（水平和垂直滚动条）。
+注意：只有当MultiLine属性为true时，该属性值才有效。在WordWrap属性值为true时，
+水平滚动条将不起作用 -->

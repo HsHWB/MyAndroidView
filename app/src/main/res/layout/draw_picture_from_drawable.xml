@@ -4,18 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     >
-    <example.com.textproject1.NewListView2
-        android:id="@+id/newView2"
+    <example.com.textproject1.DrawPictureFromDrawable_View
+        android:id="@+id/dpfdv_DPFDV"
+        android:layout_weight="2"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="fill_parent"
+        />
     <ListView
         android:id="@+id/lv"
+        android:layout_weight="2"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:background="#000"/>
     <TextView
         android:id="@+id/tv"
+        android:layout_weight="2"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:text="123456789123456789"/>
 </LinearLayout>

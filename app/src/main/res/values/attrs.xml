@@ -5,7 +5,7 @@
     <attr name="listSize1" format="dimension"/>
     <attr format="string" name="newListViewKey"/>
     </declare-styleable>
-    <declare-styleable name="NewListView2">
+    <declare-styleable name="DrawPictureFromDrawable_View">
         <attr name="listColor2" format="color"/>
         <attr name="listSize2" format="dimension"/>
         <attr format="string" name="newListView2Key"/>

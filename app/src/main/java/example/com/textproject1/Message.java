@@ -3,10 +3,8 @@ package example.com.textproject1;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Toast;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 public class Message extends Activity {
 
@@ -25,11 +23,23 @@ public class Message extends Activity {
 //        int screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
 //        int screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
 //        System.out.println("屏幕长："+screenHeightDip+"     屏幕宽："+screenWidthDip);
-        setContentView(R.layout.newview);
-        int i = 3;
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.newview,null);
-        while(i-- > 0){
-        }
+//        setContentView(R.layout.newview);
+
+//        LayoutInflater inflater = LayoutInflater.from(this);
+//        View view = inflater.inflate(R.layout.newview,null);//也可以从XML中加载布局
+
+//        int i = 3;
+//        while(i-- > 0){
+//            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+//                    ViewGroup.LayoutParams.WRAP_CONTENT);//也可以从XML中加载布局
+//            /**即是<LinearLayout
+//             android:layout_width="WRAP_CONTENT"
+//             android:layout_height="wrap_content"
+//             android:text=""/>*/
+//
+//            DrawPictureFromDrawable_View viewll = new DrawPictureFromDrawable_View(this);
+//            viewll.setLayoutParams(lp);
+//        }
+        setContentView(R.layout.draw_picture_from_drawable);
     }
 }

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <example.com.textproject1.NewListView2
+    <example.com.textproject1.DrawPictureFromDrawable_View
         android:id="@+id/newListView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         >
-    </example.com.textproject1.NewListView2>
+    </example.com.textproject1.DrawPictureFromDrawable_View>
 </LinearLayout>
