@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width = "fill_parent"
     android:layout_height="fill_parent"
-    android:scrollbars="vertical">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <example.com.textproject1.DrawPictureFromDrawable_View
-            android:id="@+id/DPFDV1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
-    </LinearLayout>
-</ScrollView>
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <example.com.textproject1.DrawPictureFromDrawable_View
+                android:id="@+id/scroll_view_DPFDV1"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <ImageView
+                android:id="@+id/scroll_view_iv"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_launcher"/>
+        </LinearLayout>
+    </ScrollView>
+    <example.com.textproject1.DrawPictureFromDrawable_View
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
 <!--用来设置滚动条模式， 有四种选择：
 ScrollBars.None （无滚动条）， ScrollBars.Horizontal（水平滚动条）
 ，ScrollBars.Vertical（垂直滚动条），ScrollBars.Both（水平和垂直滚动条）。

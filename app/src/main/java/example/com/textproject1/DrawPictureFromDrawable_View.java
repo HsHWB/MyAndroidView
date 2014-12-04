@@ -14,6 +14,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 /**
@@ -33,19 +34,24 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
     GestureDetector detector;
     int screenWidthDip = 0;
     int screenHeightDip = 0;
+    Bitmap bitmap1 = null;
     /**
      * 获取屏幕的长和宽
      */
     public DrawPictureFromDrawable_View(Context context){
-        super(context);
-        this.context = context;
-//        setWillNotDraw(false);
+        this(context, null);
+//        this.context = context;
+
+        setWillNotDraw(false);
     }
 
-    public DrawPictureFromDrawable_View(final Context context, AttributeSet attrs){
+    public DrawPictureFromDrawable_View(Context context, AttributeSet attrs){
         super(context, attrs);
         this.context = context;
-//        setWillNotDraw(false);
+
+        setWillNotDraw(false);
+        System.out.println("setWillNotDraw(false)");
+
         mPaint = new Paint();
         /**
          * TypedArray是一个数组容器,在使用完成后，一定要调用recycle方法,否则这次的设定会对下次的使用造成影响
@@ -69,8 +75,12 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
      * @param canvas
      * Canvas中含有很多画图的接口，利用这些接口，我们可以画出我们想要的图形
      */
+    @Override
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
+
+        System.out.println("onDraw onDraw");
+
         ImageView imageView = new ImageView(context);
         imageView.setImageResource(R.drawable.sucai1);
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
@@ -83,7 +93,7 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
         screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
         screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
         System.out.println("屏幕长："+screenHeightDip+"     屏幕宽："+screenWidthDip);
-        Bitmap bitmap1 = resizeBitmap(bitmap,screenWidthDip,screenHeightDip);
+        bitmap1 = resizeBitmap(bitmap,screenWidthDip,screenHeightDip);
         Rect src = new Rect();// 这个是表示绘画图片的大小
         Rect dst = new Rect();// 屏幕位置及尺寸
         src.left = 0;
@@ -116,12 +126,13 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
         }
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // TODO Auto-generated method stub
-        setMeasuredDimension(screenWidthDip, screenHeightDip);
-//      super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        // TODO Auto-generated method stub
+// //       setMeasuredDimension(bitmap1.getWidth(), bitmap1.getHeight());
+//        setMeasuredDimension(screenWidthDip,500);
+//      //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//    }
 
     @Override
     public boolean onDown(MotionEvent e){
