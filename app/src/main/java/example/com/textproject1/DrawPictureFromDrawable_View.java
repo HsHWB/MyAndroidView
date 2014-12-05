@@ -115,7 +115,7 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
             int newWidth = w;
             int newHeight = h;
             float scaleWidth = ((float) newWidth) / width;
-            float scaleHeight = ((float) newHeight/3) / height;
+            float scaleHeight = ((float) newHeight/6) / height;
             Matrix matrix = new Matrix();
             matrix.postScale(scaleWidth, scaleHeight);
             Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width,
@@ -136,8 +136,8 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
 
     @Override
     public boolean onDown(MotionEvent e){
-        System.out.println("单击");
-        Toast.makeText(context,"单击",Toast.LENGTH_SHORT).show();
+//        System.out.println("单击");
+//        Toast.makeText(context,"单击",Toast.LENGTH_SHORT).show();
 
         return true;
     }
@@ -147,12 +147,12 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
      */
     @Override
     public  boolean onScroll(MotionEvent e, MotionEvent e2, float distanceX, float distanceY){
-        int dx = (int)(e2.getX() - e.getX());
-        int dy = (int)(e2.getY() - e.getY());
-        System.out.println("滑动");
-        if (Math.sqrt(Math.pow(Math.abs(dx),2)+Math.pow(Math.abs(dy),2)) > 200) {
-            Toast.makeText(context, "滑动", Toast.LENGTH_SHORT).show();
-        }
+//        int dx = (int)(e2.getX() - e.getX());
+//        int dy = (int)(e2.getY() - e.getY());
+//        System.out.println("滑动");
+//        if (Math.sqrt(Math.pow(Math.abs(dx),2)+Math.pow(Math.abs(dy),2)) > 200) {
+//            Toast.makeText(context, "滑动", Toast.LENGTH_SHORT).show();
+//        }
         return true;
     }
     @Override
@@ -165,12 +165,12 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
     public void onLongPress(MotionEvent e){}
     @Override
     public boolean onFling(MotionEvent e, MotionEvent e2, float velocityX, float velocityY){
-        int dx = (int)(e2.getX() - e.getX());
-        int dy = (int)(e2.getY() - e.getY());
-        if (Math.sqrt(Math.pow(Math.abs(dx),2)+Math.pow(Math.abs(dy),2)) > 500) {
-            Toast.makeText(context, "onFling", Toast.LENGTH_LONG).show();
-            System.out.println("onFling");
-        }
+//        int dx = (int)(e2.getX() - e.getX());
+//        int dy = (int)(e2.getY() - e.getY());
+//        if (Math.sqrt(Math.pow(Math.abs(dx),2)+Math.pow(Math.abs(dy),2)) > 500) {
+//            Toast.makeText(context, "onFling", Toast.LENGTH_LONG).show();
+//            System.out.println("onFling");
+//        }
         return true;
     }
 
