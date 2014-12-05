@@ -9,50 +9,58 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <HorizontalScrollView
-        android:layout_width = "match_parent"
+        android:layout_width = "wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="horizontal"
-        android:fillViewport="true"
-        android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:orientation="vertical">
+        android:fillViewport="true">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/scroll_view_iv0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sucai1"/>
-            <ImageView
-                android:id="@+id/scroll_view_iv1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sucai1"/>
-            <ImageView
-                android:id="@+id/scroll_view_iv2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sucai1"/>
+            <example.com.textproject1.DrawPictureFromDrawable_View
+                android:id="@+id/scroll_view_DPFDV2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                />
+            <example.com.textproject1.DrawPictureFromDrawable_View
+                android:id="@+id/scroll_view_DPFDV3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                />
         </LinearLayout>
     </HorizontalScrollView>
+        <example.com.textproject1.DrawPictureFromDrawable_View
+            android:id="@+id/scroll_view_DPFDV7"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <example.com.textproject1.DrawPictureFromDrawable_View
+            android:id="@+id/scroll_view_DPFDV8"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <example.com.textproject1.DrawPictureFromDrawable_View
+            android:id="@+id/scroll_view_DPFDV9"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <example.com.textproject1.DrawPictureFromDrawable_View
+            android:id="@+id/scroll_view_DPFDV10"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <example.com.textproject1.DrawPictureFromDrawable_View
+            android:id="@+id/scroll_view_DPFDV11"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
         <ImageView
-            android:id="@+id/scroll_view_iv3"
+            android:id="@+id/scroll_view_iv10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_launcher"/>
         <ImageView
-            android:id="@+id/scroll_view_iv4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher"/>
-        <ImageView
-            android:id="@+id/scroll_view_iv5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher"/>
-        <ImageView
-            android:id="@+id/scroll_view_iv6"
+            android:id="@+id/scroll_view_iv11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_launcher"/>

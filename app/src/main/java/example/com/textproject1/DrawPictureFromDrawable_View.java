@@ -32,8 +32,8 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
     Context context = null;
     DisplayMetrics displayMetrics = NewScrollView_Activity.displayMetrics_Scroll;
     GestureDetector detector;
-    int screenWidthDip = 0;
-    int screenHeightDip = 0;
+    int screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
+    int screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
     Bitmap bitmap1 = null;
     /**
      * 获取屏幕的长和宽
@@ -90,8 +90,6 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
         float xdpi = displayMetrics.xdpi;
         float ydpi = displayMetrics.ydpi;
         System.out.println("xdpi"+xdpi+"    ydpi"+ydpi);
-        screenWidthDip = (int)(displayMetrics.widthPixels);//屏幕宽
-        screenHeightDip = (int)(displayMetrics.heightPixels);//屏幕长
         System.out.println("屏幕长："+screenHeightDip+"     屏幕宽："+screenWidthDip);
         bitmap1 = resizeBitmap(bitmap,screenWidthDip,screenHeightDip);
         Rect src = new Rect();// 这个是表示绘画图片的大小
@@ -126,13 +124,13 @@ public class DrawPictureFromDrawable_View extends View implements GestureDetecto
         }
     }
 
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        // TODO Auto-generated method stub
-// //       setMeasuredDimension(bitmap1.getWidth(), bitmap1.getHeight());
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // TODO Auto-generated method stub
+        //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+       setMeasuredDimension(screenWidthDip, screenHeightDip/5);
 //        setMeasuredDimension(screenWidthDip,500);
-//      //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-//    }
+    }
 
     @Override
     public boolean onDown(MotionEvent e){
